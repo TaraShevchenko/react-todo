@@ -1,10 +1,23 @@
-$primary: #00365a;
-$secondary: #001e31;
-$white: #fff;
-$greyLight: #f8f8f8;
-$greyMediumLight: #e1e1e1;
-$greyMedium: #d7d7d7;
-$grey: #808080;
-$blackLight: #e6e6e6;
-$blackMedium: #3a3a3a;
-$black: #000;
+:root {
+  --primary: #00365a;
+  --secondary: #001e31;
+  --bodyBackground: #f8f8f8;
+  --todoBackground: #ffffff;
+  --splitter: #d7d7d7;
+  --textMain: #3a3a3a;
+  --textMuted: #808080;
+  --textWhite: #ffffff;
+  --todoShadow: #e6e6e6;
+  --modalUnderlay: rgba(0, 0, 0, 0.5);
+}
+
+$primary: var(--primary);
+$secondary: var(--secondary);
+$bodyBackground: var(--bodyBackground);
+$todoBackground: var(--todoBackground);
+$splitter: var(--splitter);
+$textMain: var(--textMain);
+$textMuted: var(--textMuted);
+$textWhite: var(--textWhite);
+$todoShadow: var(--todoShadow);
+$modalUnderlay: var(--modalUnderlay);

@@ -1,7 +1,7 @@
 @import "../../vars.scss";
 
 .todoModal__wrapper {
-  display: none;
+  //display: none;
   &.active {
     display: block;
   }
@@ -14,8 +14,7 @@
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background-color: $black;
-  opacity: .5;
+  background-color: $modalUnderlay;
 }
 
 .todoModal {
@@ -25,12 +24,12 @@
   z-index: 1050;
   width: 380px;
   height: 100vh;
-  background: $white;
+  background: $todoBackground;
 }
 
 .todoModal__header {
   padding: 1.75rem;
-  border-bottom: 1px solid $greyMedium;
+  border-bottom: 1px solid $splitter;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,9 +38,25 @@
 .todoModal__header-close {
   padding: 1rem;
   margin: -1rem -1rem -1rem auto;
-  color: $blackMedium;
+  color: $textMain;
   &:hover {
     cursor: pointer;
     opacity: 0.75;
   }
+}
+
+.todoModal__block {
+  padding: 1.75rem;
+
+  .dropdown-menu {
+    width: calc(100% + 1rem);
+    position: unset;
+    margin-left: -.5rem;
+  }
+}
+
+.todoModal__block-title {
+  margin-bottom: 1rem;
+  color: $primary;
+  font-weight: 600;
 }

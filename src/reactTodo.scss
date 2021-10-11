@@ -1,9 +1,32 @@
 @import "vars.scss";
 
+
+.settings {
+  position: fixed;
+  top: -50px;
+  left: -40px;
+  height: 100px;
+  width: 100px;
+  background-color: $primary;
+  border: none;
+  border-radius: 50%;
+  color: $textWhite;
+  transition: all .2s;
+  &:hover {
+    background-color: $secondary;
+  }
+  svg {
+    position: absolute;
+    right: 22px;
+    bottom: 17px;
+  }
+}
+
 body {
   font-family: 'Nunito', sans-serif;
-  background: $greyLight;
+  background: $bodyBackground;
   padding-top: 60px;
+  color: $textMain;
 
   .btn {
     border-radius: 50px;
@@ -27,7 +50,7 @@ body {
   .btn-primary {
     background-color: $primary !important;
     border-color: $primary !important;
-    color: $white;
+    color: $textWhite;
     box-shadow: none !important;
 
     &:is(:hover, :active, :focus, :focus-within, .active, .show) {
@@ -38,14 +61,14 @@ body {
   }
 
   .btn-outline-primary {
-    border-color: $grey !important;
-    color: $grey !important;
+    border-color: $textMuted !important;
+    color: $textMuted !important;
     box-shadow: none !important;
 
     &:is(:hover, :active, :focus, :focus-within, .active, .show) {
       background-color: $primary !important;
       border-color: $primary !important;
-      color: $white !important;
+      color: $textWhite !important;
       box-shadow: none !important;
     }
   }
@@ -58,27 +81,29 @@ body {
   .dropdown-menu {
     border-radius: .75rem;
     font-size: .8rem;
-    background: $white;
-    border-color: $greyMediumLight;
+    background: $todoBackground;
+    border-color: $splitter;
 
     .dropdown-item {
       padding: .5rem 1.25rem;
-      color: $blackMedium;
+      color: $textMain;
+      cursor: pointer;
 
       &:hover {
-        background-color: $greyLight;
-        color: $blackMedium;
+        background-color: $bodyBackground;
+        color: $textMain;
       }
 
-      &:active {
-        color: $white;
+      &:is(:active, .active) {
+        color: $textWhite;
         text-decoration: none;
         background-color: $primary;
+        cursor: default;
       }
 
       &:is(:focus, :focus-within) {
         background: transparent;
-        color: $blackMedium;
+        color: $textMain;
       }
     }
   }
@@ -89,12 +114,12 @@ body {
     padding: 0.4rem 0.8rem;
     font-size: 0.6rem;
     background-color: $primary;
-    color: $white;
+    color: $textWhite;
   }
 
   .text-muted {
     font-size: .75rem;
-    color: $grey !important;
+    color: $textMuted !important;
   }
 }
 
