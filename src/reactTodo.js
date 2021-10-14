@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useSelector } from 'react-redux'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
@@ -9,74 +10,8 @@ import TodoItem from "./components/TodoItem/TodoItem";
 import TodoModal from "./components/TodoModal/TodoModal";
 
 const ReactTodo = () => {
-
-
-    const newTheme = {
-        theme: {description: "theme name", value: "dark"},
-        colors: [
-            {
-                description: "Primary color",
-                variable: "--primary",
-                value: "#236591"
-            },
-            {
-                description: "Secondary color",
-                variable: "--secondary",
-                value: "#1b4e70"
-            },
-            {
-                description: "Body background",
-                variable: "--bodyBackground",
-                value: "#18191b"
-            },
-            {
-                description: "Todo background",
-                variable: "--todoBackground",
-                value: "#1e2022"
-            },
-            {
-                description: "Splitter",
-                variable: "--splitter",
-                value: "#424242"
-            },
-            {
-                description: "Text Main color",
-                variable: "--textMain",
-                value: "#8f8f8f"
-            },
-            {
-                description: "Text Muted color",
-                variable: "--textMuted",
-                value: "#d0d0d0"
-            },
-            {
-                description: "Text White color",
-                variable: "--textWhite",
-                value: "#d0d0d0"
-            },
-            {
-                description: "Todo item box-shadow",
-                variable: "--todoShadow",
-                value: "#1b1d1f"
-            },
-            {
-                description: "Modal underlay",
-                variable: "--modalUnderlay",
-                value: "rgba(0, 0, 0, 0.5)"
-            },
-        ]
-    }
-
     const [theme, setTheme] = useState('light');
     const [open, setOpened] = useState(false);
-
-    const changeTheme = (newTheme) => {
-        for (let i = 0; i < newTheme.colors.length; i++) {
-            document.body.style.setProperty(newTheme.colors[i].variable, newTheme.colors[i].value);
-        }
-        setTheme(newTheme.theme.value);
-    }
-
 
     return (
         <div className={theme + "-theme"}>
@@ -96,9 +31,7 @@ const ReactTodo = () => {
                 <main className="main">
                     <TodoItem/>
                 </main>
-                {open && <TodoModal setOpened={setOpened} initialTheme={newTheme} changeTheme={changeTheme}/>}
-
-                {/*<button className="btn btn-primary" onClick={() => changeTheme(newTheme)}>set dark</button>*/}
+                {open && <TodoModal setOpened={setOpened} activeTheme={theme} setTheme={setTheme} />}
             </div>
         </div>
     );

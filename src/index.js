@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTodo from "./reactTodo";
+import { store } from './store/store'
+import { Provider } from 'react-redux'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ReactTodo />
+      <Provider store={store}>
+        <ReactTodo />
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
